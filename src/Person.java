@@ -45,6 +45,7 @@ public class Person {
                 || this.y == y && Math.abs(this.x - x) == 1;
     }
 
+
     void move(int x, int y) {
         this.x = x;
         this.y = y;

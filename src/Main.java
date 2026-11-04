@@ -18,6 +18,7 @@ public class Main {
         for (int y = 1; y <= sizeBoard; y++) {
             for (int x = 1; x <= sizeBoard; x++) {
                 board[y - 1][x - 1] = "  ";
+
             }
         }
 
