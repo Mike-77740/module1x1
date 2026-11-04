@@ -7,6 +7,7 @@ public class Main {
 
         int sizeBoard = 5;
         int step = 0;
+        int winmonsters = 0;
 
         Person person = new Person(sizeBoard);
 
@@ -65,10 +66,7 @@ public class Main {
                     board[person.getY() - 1][person.getX() - 1] = person.getImage();
                     outputBoard(board, person.getLive());
 
-                    System.out.println("Введите, куда будет ходить персонаж "
-                            + "(ход возможен только по вертикали или горизонтали на одну клетку)"
-                            + "\nКоординаты персонажа — (x: " + person.getX()
-                            + ", y: " + person.getY() + ")");
+                    System.out.println("Введите свой ход (w-вверх, s-вниз, a-влево, d-вправо)");
 
                     int x, y;
 
@@ -98,35 +96,36 @@ public class Main {
                     }
 
 
-                    if (person.isMoveCorrect(x, y)) {
-                        if (board[y - 1][x - 1].equals("  ")) {
-                            board[person.getY() - 1][person.getX() - 1] = "  ";
-                            person.move(x, y);
-                            step++;
+                    if (board[y - 1][x - 1].equals("  ")) {
+                        board[person.getY() - 1][person.getX() - 1] = "  ";
+                        person.move(x, y);
+                        step++;
 
-                            System.out.println("Ход корректный; новые координаты: "
-                                    + person.getX() + ", " + person.getY()
-                                    + "\nХод номер: " + step);
-                        } else if (board[y - 1][x - 1].equals(castle)) {
-                            System.out.println("Вы прошли игру!");
-                            break;
-                        } else {
-                            for (Monster monster : monsters) {
-                                if (monster.conflictPerson(x, y)) {
-                                    if (monster.taskMonster(difficultGame)) {
-                                        board[person.getY() - 1][person.getX() - 1] = "  ";
-                                        person.move(x, y);
-                                        step++;
-                                    } else {
-                                        person.downLive();
-                                    }
-                                    break;
+                        System.out.println("Ход корректный; новые координаты: "
+                                + person.getX() + ", " + person.getY()
+                                + "\nХод номер: " + step);
+                    } else if (board[y - 1][x - 1].equals(castle)) {
+                        System.out.println("Вы прошли игру!");
+                        System.out.println("Колличество шагов: " + step + ".");
+                        System.out.println("Колличество побежденных монстров: " + winmonsters + ".");
+                        System.out.println("Колличество оставшихся жизней: " + person.getLive() + ".");
+                        break;
+                    } else {
+                        for (Monster monster : monsters) {
+                            if (monster.conflictPerson(x, y)) {
+                                if (monster.taskMonster(difficultGame)) {
+                                    board[person.getY() - 1][person.getX() - 1] = "  ";
+                                    person.move(x, y);
+                                    step++;
+                                    winmonsters++;
+                                } else {
+                                    person.downLive();
                                 }
+                                break;
                             }
                         }
-                    } else {
-                        System.out.println("Некорректный ход");
                     }
+
 
 
                     if (person.getLive() <= 0) {
@@ -135,7 +134,9 @@ public class Main {
                 }
 
                 if (person.getLive() <= 0) {
-                    System.out.println("Закончились жизни. Итог: ...");
+                    System.out.println("Закончились жизни. Итог:");
+                    System.out.println("колличество шагов: " + step + ",");
+                    System.out.println("колличество побежденных монстров: " + winmonsters + ".");
                 }
                 break;
 
