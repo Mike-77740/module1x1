@@ -30,10 +30,12 @@ public class Main {
         while (count < countMonster) {
             Monster monster;
             int n = random.nextInt(100); // задает вероятность определённому монстру
-            if (n <= 70) {
+            if (n < 50) {
                 monster = new Monster(sizeBoard);
-            } else {
+            } else  if (n < 80){
                 monster = new BigMonster(sizeBoard);
+            } else {
+                monster = new JesterMonster(sizeBoard);
             }
 
             int row = monster.getY() - 1;
