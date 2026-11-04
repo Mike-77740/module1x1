@@ -72,26 +72,28 @@ public class Main {
 
                     int x, y;
 
+                    label:
                     while (true) {
                         String direction = scanner.nextLine();
-                        if (direction.equals("w") || direction.equals("W")) {
-                            x = person.getX();
-                            y = person.getY() - 1;
-                            break;
-                        } else if (direction.equals("a") || direction.equals("A")) {
-                            x = person.getX() - 1;
-                            y = person.getY();
-                            break;
-                        } else if (direction.equals("s") || direction.equals("S")) {
-                            x = person.getX();
-                            y = person.getY() + 1;
-                            break;
-                        } else if (direction.equals("d") || direction.equals("D")) {
-                            x = person.getX() + 1;
-                            y = person.getY();
-                            break;
-                        } else {
-                            System.out.println("Неверный ввод, введите заново.");
+                        switch (direction) {
+                            case "w", "W":
+                                x = person.getX();
+                                y = person.getY() - 1;
+                                break label;
+                            case "a", "A":
+                                x = person.getX() - 1;
+                                y = person.getY();
+                                break label;
+                            case "s", "S":
+                                x = person.getX();
+                                y = person.getY() + 1;
+                                break label;
+                            case "d", "D":
+                                x = person.getX() + 1;
+                                y = person.getY();
+                                break label;
+                            default:
+                                System.out.println("Неверный ввод, введите заново.");
                         }
                     }
 

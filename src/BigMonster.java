@@ -15,9 +15,9 @@ public class BigMonster extends Monster {
             System.out.println("Решите задачу:");
 
             Random random = new Random();
-            int x = random.nextInt(100 * (difficultGame - 1), 100 * difficultGame);
-            int y = random.nextInt(100 * (difficultGame - 1), 100 * difficultGame);
-            int z = random.nextInt(100 * (difficultGame - 1), 100 * difficultGame);
+            int x = random.nextInt(100);
+            int y = random.nextInt(100);
+            int z = random.nextInt(100);
 
             int trueAnswer = x * y * z;
 
