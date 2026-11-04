@@ -51,11 +51,11 @@ public class Person {
         this.y = y;
     }
 
-    public void downLive() {
+    public void downLive(int i) {
         if (live <= 0) {
             live = 0;
         } else {
-            live -= 1;
+            live -= i;
         }
     }
 }

@@ -2,8 +2,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Monster {
-    private String image = " m";
+    private String image = "\uD83E\uDDDF";
     private final int x, y;
+    private String name = "m";
 
     Monster(int sizeBoard) {
         Random random = new Random();
@@ -17,6 +18,14 @@ public class Monster {
 
     public int getY() {
         return y;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getImage() {
@@ -74,6 +83,6 @@ public class Monster {
     }
 
     public int damageMonster() {
-        return 2;
+        return 1;
     }
 }

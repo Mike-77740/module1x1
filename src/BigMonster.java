@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class BigMonster extends Monster {
     BigMonster(int sizeBoard) {
         super(sizeBoard);
-        setImage("Bm");
+        setImage("\uD83D\uDC79");
+        setName("Bm");
     }
 
     @Override

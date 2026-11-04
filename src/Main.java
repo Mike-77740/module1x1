@@ -29,8 +29,8 @@ public class Main {
 
         while (count < countMonster) {
             Monster monster;
-
-            if (random.nextBoolean()) {
+            int n = random.nextInt(100); // задает вероятность определённому монстру
+            if (n <= 70) {
                 monster = new Monster(sizeBoard);
             } else {
                 monster = new BigMonster(sizeBoard);
@@ -119,7 +119,10 @@ public class Main {
                                     step++;
                                     winmonsters++;
                                 } else {
-                                    person.downLive();
+                                    if (monster.getName().equals("m")) System.out.println("Вас ранил обычный монстр");
+                                    if (monster.getName().equals("Bm")) System.out.println("Вас ранил большой монстр");
+
+                                    person.downLive(monster.damageMonster());
                                 }
                                 break;
                             }
