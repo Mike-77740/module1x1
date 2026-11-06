@@ -11,15 +11,6 @@ public class Person {
         y = sizeBoard;
     }
 
-    Person(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    Person() {
-        this(1, 1);
-    }
-
     public int getX() {
         return x;
     }
@@ -35,16 +26,6 @@ public class Person {
     public String getImage() {
         return image;
     }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public boolean isMoveCorrect(int x, int y) {
-        return this.x == x && Math.abs(this.y - y) == 1
-                || this.y == y && Math.abs(this.x - x) == 1;
-    }
-
 
     void move(int x, int y) {
         this.x = x;

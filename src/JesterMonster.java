@@ -5,7 +5,7 @@ public class JesterMonster extends Monster {
     JesterMonster(int sizeBoard) {
         super(sizeBoard);
         setImage("\uD83E\uDD21");
-        setName(" J");
+        setName("Jester");
     }
 
     @Override
@@ -69,13 +69,13 @@ public class JesterMonster extends Monster {
                 return false;
             }
         } else {
-            System.out.println("Ты воздухан:");
-            System.out.println("А: да");
-            System.out.println("Б: да");
-            System.out.println("В: да");
+            System.out.println("Что становится белым, когда грязное:");
+            System.out.println("А: пол");
+            System.out.println("Б: доска");
+            System.out.println("В: бумага");
             Scanner scanner = new Scanner(System.in);
-            if (scanner.nextLine().equals("В")) {
-                System.out.println("Верно! Ты воздухан!");
+            if (scanner.nextLine().equals("Б")) {
+                System.out.println("Верно! Ты победил монстра");
                 return true;
             } else {
                 System.out.println("Ты проиграл эту битву!");

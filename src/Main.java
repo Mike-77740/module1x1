@@ -7,7 +7,7 @@ public class Main {
 
         int sizeBoard = 5;
         int step = 0;
-        int winmonsters = 0;
+        int winMonsters = 0; // колличество побежденных монстров
 
         Person person = new Person(sizeBoard);
 
@@ -29,7 +29,7 @@ public class Main {
 
         while (count < countMonster) {
             Monster monster;
-            int n = random.nextInt(100); // задает вероятность определённому монстру
+            int n = random.nextInt(100); // задаёт вероятность определённому монстру
             if (n < 50) {
                 monster = new Monster(sizeBoard);
             } else  if (n < 80){
@@ -109,7 +109,7 @@ public class Main {
                     } else if (board[y - 1][x - 1].equals(castle)) {
                         System.out.println("Вы прошли игру!");
                         System.out.println("Колличество шагов: " + step + ".");
-                        System.out.println("Колличество побежденных монстров: " + winmonsters + ".");
+                        System.out.println("Колличество побежденных монстров: " + winMonsters + ".");
                         System.out.println("Колличество оставшихся жизней: " + person.getLive() + ".");
                         break;
                     } else {
@@ -119,12 +119,14 @@ public class Main {
                                     board[person.getY() - 1][person.getX() - 1] = "  ";
                                     person.move(x, y);
                                     step++;
-                                    winmonsters++;
+                                    winMonsters++;
                                 } else {
-                                    if (monster.getName().equals("m")) System.out.println("Вас ранил обычный монстр");
-                                    if (monster.getName().equals("Bm")) System.out.println("Вас ранил большой монстр");
-
-                                    person.downLive(monster.damageMonster());
+                                    switch (monster.getName()) { // выдает какой монстр вас ранил
+                                        case "Monster" -> System.out.println("Вас ранил обычный монстр");
+                                        case "BigMonster" -> System.out.println("Вас ранил большой монстр");
+                                        case "Jester" -> System.out.println("Вас взорвал шут");
+                                        default -> System.out.println("Вас ранила неизвестная сущность");
+                                    }
                                 }
                                 break;
                             }
@@ -141,7 +143,7 @@ public class Main {
                 if (person.getLive() <= 0) {
                     System.out.println("Закончились жизни. Итог:");
                     System.out.println("колличество шагов: " + step + ",");
-                    System.out.println("колличество побежденных монстров: " + winmonsters + ".");
+                    System.out.println("колличество побежденных монстров: " + winMonsters + ".");
                 }
                 break;
 

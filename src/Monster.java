@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Monster {
     private String image = "\uD83E\uDDDF";
     private final int x, y;
-    private String name = "m";
+    private String name = "Monster";
 
     Monster(int sizeBoard) {
         Random random = new Random();
@@ -61,7 +61,6 @@ public class Monster {
                 return false;
             }
         } else {
-            // какой-то код
             Random random = new Random();
             int a = random.nextInt(100);
             int b = random.nextInt(100);
