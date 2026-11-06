@@ -82,6 +82,6 @@ public class Monster {
     }
 
     public int damageMonster() {
-        return 1;
+        return 2;
     }
 }

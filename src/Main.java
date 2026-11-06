@@ -121,12 +121,13 @@ public class Main {
                                     step++;
                                     winMonsters++;
                                 } else {
-                                    switch (monster.getName()) { // выдает какой монстр вас ранил
-                                        case "Monster" -> System.out.println("Вас ранил обычный монстр");
-                                        case "BigMonster" -> System.out.println("Вас ранил большой монстр");
-                                        case "Jester" -> System.out.println("Вас взорвал шут");
-                                        default -> System.out.println("Вас ранила неизвестная сущность");
+                                    switch (monster.getName()) {
+                                        case "Monster" -> System.out.println("Вас ранил обычный монстр.");
+                                        case "BigMonster" -> System.out.println("Вас ранил большой монстр.");
+                                        case "Jester" -> System.out.println("Вас взорвал шут!");
+                                        default -> System.out.println("Вас ранила неизвестная сущность?");
                                     }
+                                    person.downLive(monster.damageMonster());
                                 }
                                 break;
                             }

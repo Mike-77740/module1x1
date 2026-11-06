@@ -42,6 +42,6 @@ public class BigMonster extends Monster {
     }
 
     public int damageMonster() {
-        return 3;
+        return 4;
     }
 }
