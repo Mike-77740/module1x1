@@ -85,6 +85,6 @@ public class JesterMonster extends Monster {
     }
 
     public int damageMonster() {
-        return 7;
+        return 8;
     }
 }
